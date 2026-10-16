@@ -3,24 +3,63 @@
 
 int main(void)
 {
-    float revenue;
-    float expenses;
-    float balance;
+    float basicSalary;
+    float housing;
+    float transport;
+    float tax;
+    float grossSalary;
+    float netSalary;
 
-    printf("MUNICIPAL BUDGET CALCULATOR\n");
+    printf("EMPLOYEE SALARY CALCULATOR\n");
+    printf("--------------------------\n");
 
-    printf("Enter total revenue: ");
-    scanf("%f", &revenue);
+    printf("Enter basic salary: ");
+    if (scanf("%f", &basicSalary) != 1)
+    {
+        printf("Invalid salary input.\n");
+        return 1;
+    }
 
-    printf("Enter total expenses: ");
-    scanf("%f", &expenses);
+    printf("Enter housing allowance: ");
+    if (scanf("%f", &housing) != 1)
+    {
+        printf("Invalid housing allowance.\n");
+        return 1;
+    }
 
-    balance = revenue - expenses;
+    printf("Enter transport allowance: ");
+    if (scanf("%f", &transport) != 1)
+    {
+        printf("Invalid transport allowance.\n");
+        return 1;
+    }
 
-    printf("\n--- Budget Results ---\n");
-    printf("Revenue: %.2f\n", revenue);
-    printf("Expenses: %.2f\n", expenses);
-    printf("Balance: %.2f\n", balance);
+    printf("Enter tax: ");
+    if (scanf("%f", &tax) != 1)
+    {
+        printf("Invalid tax input.\n");
+        return 1;
+    }
+
+    grossSalary = basicSalary + housing + transport;
+    netSalary = grossSalary - tax;
+
+    printf("\n--- Salary Results ---\n");
+    printf("Basic Salary: %.2f\n", basicSalary);
+    printf("Housing Allowance: %.2f\n", housing);
+    printf("Transport Allowance: %.2f\n", transport);
+    printf("Tax: %.2f\n", tax);
+    printf("Gross Salary: %.2f\n", grossSalary);
+    printf("Net Salary: %.2f\n", netSalary);
+
+    if (netSalary >= 20000)
+    {
+        printf("Income Category: High Income\n");
+    }
+    else
+    {
+        printf("Income Category: Standard Income\n");
+    }
 
     return 0;
 }
